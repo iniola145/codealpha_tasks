@@ -6,11 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="./output.css">
-    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- No need to use NPM -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>To-Do List</title>
 </head>
 
-<body>
-    
+<body class="h-full">
+    <div class="flex flex-col h-screen">
+        <nav class="flex justify-between items-center bg-[#F8F8F8] py-4 px-8 md:px-16 shadow-md mb-10">
+            <p class="text-3xl font-semibold"><span class="text-[#4B99D2]">To</span>-Do</p>
+            <div class="flex items-center space-x-5">
+                <a href="" onclick="event.preventDefault();" class="bg-[#4B99D2] p-2.5 rounded-xl"><i class='bx bx-bell'></i></a>
+                <a href="" onclick="event.preventDefault();" class="bg-[#4B99D2] p-2.5 rounded-xl"><i class='bx bx-calendar'></i></a>
+                <div>
+                    <p id="Day">Tuesday</p>
+                    <p class="text-[#DC3545]"><span id="Month"></span>/<span id="Date"></span>/<span id="Year"></span></p>
+                </div>
+            </div>
+        </nav>
+        <div class="flex w-full grow overflow-auto pb-4">
+            <div class="basis-1/10 bg-[#4B99D2] shadow-2xl flex justify-center items-start p-4 pt-8 rounded-r-2xl">
+                <div class="flex flex-col items-center">
+                   <button class="p-1.5 border-1 rounded-[50%] flex items-center cursor-pointer" id="Buttonone"><i class='bx bx-plus text-2xl'></i>
+                </button>
+                Add Note 
+                </div>
+            </div>
+            <div class="basis-9/10 overflow-y-scroll border-[#A1A3AB] rounded-l-2xl border mx-10 p-8 shadow-2xl space-y-4" id="NoteContainer">
+                
+            </div>
+        </div>
+    </div>
+    <div class="items-center justify-center h-screen fixed inset-0 bg-black/15 hidden" id="AddNote">
+        <div class="bg-white w-1/2 md:w-2/5 mx-auto p-6 rounded-lg shadow-sm space-y-10">
+            <p class="text-2xl font-bold mb-6 text-[#7F7F7F] w-full border-0">Add Title</p>
+
+            <input type="text" class="border-b w-full focus:outline-0" placeholder="Add The Title Here..." id="NoteTitle">
+
+            <p class="text-2xl font-bold mb-6 text-[#7F7F7F] w-full border-0">Add Description</p>
+
+            <textarea name="message" rows="4" placeholder="Type your message here..." class="border-b w-full focus:outline-0" id="NoteContent"></textarea>
+
+            <div class="flex justify-end gap-4">
+                <button class="text-black font-bold px-4 py-2 rounded-4xl duration-150  hover:bg-[#DC3545] cursor-pointer" id="CancelButton">Cancel</button>
+                <button
+                    class="bg-[#4B99D2] text-black font-bold px-4 py-2 rounded-4xl hover:bg-[#9BBBEF] duration-150 cursor-pointer" id="SaveButton">Save</button>
+            </div>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 
